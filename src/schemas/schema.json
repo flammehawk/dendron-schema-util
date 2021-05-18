@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schemas.dendron.so/schema.json",
+    "title": "test",
+    "type":"object",
+    "properties": {
+        "schemaId":{
+            "type":"string",
+            "title": "The Id for this schema"
+        },
+        "schemaTitle":{
+            "type":"string",
+            "title": "The title of this Schema for dendrons UI components."
+        },
+        "desc":{
+            "type":"string",
+            "title": "The description of the Schema"
+        },
+        "parent":{
+            "type":"string",
+            "title": "The Key of the Parent Schema",
+            "examples":[
+                "root"
+            ]                
+        },
+        "pattern":{
+            "type":"string",
+            "title": "The Pattern that needs to match for this Hierachy to apply, in glob style"
+        },
+        "namespace":{
+            "type":"boolean",
+            "default":false,
+            "title": "Is this schema a namespace?"
+        },
+        "children":{
+            "title": "The children for this schema",
+            "type":"array",
+            "items":[
+                {
+                    "type":"string",
+                    "description": "The schemaId of the child schema."
+
+                },
+                {
+                    "$ref": "#"
+                }
+            ]
+        }
+    },
+    "required": ["schemaId"],
+    "additionalProperties": false
+    
+}
+
